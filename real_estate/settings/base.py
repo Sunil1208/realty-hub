@@ -126,4 +126,77 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+"""
+Django Logging Configuration Guide
+
+1. Components of Django Logging:
+
+Django's logging system is made up of several components:
+
+- **Loggers**: Define where the logs originate from (e.g., Django core, database, custom apps).
+- **Handlers**: Specify where the logs should be sent (console, file, email, database, etc.).
+- **Filters**: Allow fine-grained control over which log messages are processed.
+- **Formatters**: Define how log messages are formatted (timestamps, log levels, modules, etc.).
+
+2. Log Levels in Django:
+
+Each log message has a severity level. The levels supported by Django are:
+
+| Level      | Value | Use Case Description                                      |
+|------------|-------|-----------------------------------------------------------|
+| **DEBUG**   | 10    | Detailed debugging information useful during development. |
+| **INFO**    | 20    | General system operation messages.                        |
+| **WARNING** | 30    | Indicates something unexpected but not necessarily an error. |
+| **ERROR**   | 40    | A significant issue that affects system functionality.    |
+| **CRITICAL**| 50    | A severe error causing system failure or unrecoverable state. |
+
+"""
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+import logging
+import logging.config
+
+from django.utils.log import DEFAULT_LOGGING
+
+logger = logging.getLogger(__name__)
+
+LOG_LEVEL = "INFO"
+
+logging.config.dictConfig(
+    {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "console": {
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+            },
+            "file": {
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+            },
+            "django.server": DEFAULT_LOGGING["formatters"]["django.server"],
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "console",
+            },
+            "file": {
+                "level": LOG_LEVEL,
+                "class": "logging.FileHandler",
+                "formatter": "file",
+                "filename": "logs/real_estate.log",
+            },
+            "django.server": DEFAULT_LOGGING["handlers"]["django.server"],
+        },
+        "loggers": {
+            "": {
+                "handlers": ["console", "file"],
+                "level": LOG_LEVEL,
+                "propagate": False,
+            },
+            "apps": {"handlers": ["console"], "level": LOG_LEVEL, "propagate": False},
+            "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
+        },
+    }
+)
