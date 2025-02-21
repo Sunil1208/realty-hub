@@ -21,5 +21,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("supersecret/", admin.site.urls),
+    path("admin/", admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = "Realty Hub Admin"
+admin.site.site_title = "Realty Hub Admin Portal"
+admin.site.index_title = "Welcome to Realty Hub Admin Portal"
