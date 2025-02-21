@@ -30,7 +30,7 @@ class CustomUserManager(BaseUserManager):
         else:
             raise ValueError(_("Base User Account: Email is required"))
 
-        user = self.mode(
+        user = self.model(
             username=username,
             first_name=first_name,
             last_name=last_name,
