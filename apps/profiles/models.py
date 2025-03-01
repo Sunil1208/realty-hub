@@ -19,7 +19,7 @@ class Profile(TimeStampedUUIDModel):
     phone_number = PhoneNumberField(
         verbose_name=_("Phone Number"), blank=True, null=True, max_length=15
     )
-    about = models.TextField(
+    about_me = models.TextField(
         verbose_name=_("About me"), default="Say something about yourself"
     )
     license = models.CharField(
