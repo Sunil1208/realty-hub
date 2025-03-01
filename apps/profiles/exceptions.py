@@ -1,12 +1,12 @@
 from rest_framework.exceptions import APIException
-from http import HTTPStatus
+from rest_framework import status
 
 
 class ProfileNotFound(APIException):
-    status_code = HTTPStatus.NOT_FOUND
+    status_code = status.HTTP_404_NOT_FOUND
     default_details = "The requested profile does not exist."
 
 
 class NotYourProfile(APIException):
-    status_code = HTTPStatus.FORBIDDEN
+    status_code = status.HTTP_403_FORBIDDEN
     default_details = "You can't edit a profile that doesn't belong to you"
