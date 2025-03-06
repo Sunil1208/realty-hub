@@ -155,7 +155,7 @@ class Property(TimeStampedUUIDModel):
 
     def save(self, *args, **kwargs):
         self.title = str.title(self.title)
-        self.description = str.description(self.description)
+        self.description = str.capitalize(self.description)
         self.ref_code = self.generate_ref_code()
         super(Property, self).save(*args, **kwargs)
 
