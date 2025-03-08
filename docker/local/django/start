@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# If any command fails, exit immediately
+set -o errexit
+
+# If any command in a pipeline fails, don't continue
+set -o pipefail
+
+# Treat unset variables as an error when substituting
+set -o nounset
+
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
+python3 manage.py collectstatic --noinput
+python3 manage.py runserver 0.0.0.0:8000

@@ -1,0 +1,74 @@
+# Ignore Visual Studio and VS Code settings
+**/.vs
+**/.vscode
+**/*.*proj.user
+
+# Ignore database and debugging artifacts
+**/*.dbmdl
+**/*.jfm
+**/azds.yaml
+
+# Ignore Helm charts directory (if applicable)
+**/charts
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Ignore virtual environments
+env/
+venv/
+*.egg-info/
+*.egg
+
+# Ignore pip and virtual environment logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore tox and test coverage files
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Ignore Git and code analysis caches
+.git
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+
+# Ignore editor-specific and temporary files
+.idea/
+*.swp
+
+# Ignore environment files and secrets
+.env
+.env.local
+.env.production
+.env.*  # Ignore all .env variants
+secrets.json
+
+# Ignore database files (for security)
+db.sqlite3
+*.sqlite3
+migrations/  # Exclude migration files (optional)
+
+# Ignore static and media files (if using Docker volumes for them)
+staticfiles/
+media/
+
+# Ignore frontend build artifacts
+node_modules/
+dist/
+build/
+
+# Ignore Docker-related files
+.dockerignore
+Dockerfile
