@@ -1,14 +1,15 @@
 from django.urls import path
+
 from apps.properties.views import (
-    ListAllPropertyApiView,
     ListAgentsPropertiesApiView,
-    PropertyViewsApiView,
+    ListAllPropertyApiView,
     PropertyDetailView,
-    update_property_api_view,
+    PropertySearchApiView,
+    PropertyViewsApiView,
     create_property_api_view,
     delete_property_api_view,
+    update_property_api_view,
     uploadPropertyImage,
-    PropertySearchApiView,
 )
 
 urlpatterns = [

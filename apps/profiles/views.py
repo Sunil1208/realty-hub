@@ -1,7 +1,8 @@
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from apps.profiles.exceptions import ProfileNotFound, NotYourProfile
+
+from apps.profiles.exceptions import NotYourProfile, ProfileNotFound
 from apps.profiles.models import Profile
 from apps.profiles.renderers import ProfileJSONRenderer
 from apps.profiles.serializers import ProfileSerializer, UpdateProfileSerializer

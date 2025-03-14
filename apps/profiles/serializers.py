@@ -1,7 +1,8 @@
 from django_countries.serializer_fields import CountryField
 from rest_framework import serializers
-from apps.ratings.serliaziers import RatingSerializer
+
 from apps.profiles.models import Profile
+from apps.ratings.serliaziers import RatingSerializer
 
 
 class ProfileSerializer(serializers.ModelSerializer):

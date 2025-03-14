@@ -2,7 +2,7 @@ import logging
 
 import django_filters
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, filters, permissions, status
+from rest_framework import filters, generics, permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -11,9 +11,9 @@ from apps.properties.exceptions import PropertyNotFound, PropertyNotYours
 from apps.properties.models import Property, PropertyViews
 from apps.properties.pagination import PropertyPagination
 from apps.properties.serializers import (
+    PropertyCreateSerializer,
     PropertySerializer,
     PropertyViewSerializer,
-    PropertyCreateSerializer,
 )
 
 logger = logging.getLogger(__name__)
