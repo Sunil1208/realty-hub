@@ -1,0 +1,7 @@
+[tool.black]
+profile = "black  # Ensures compatibility with black formatter"
+extend-exclude = '''
+    /(
+        | venv
+    )/
+'''
