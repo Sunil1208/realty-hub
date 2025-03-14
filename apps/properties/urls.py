@@ -8,7 +8,7 @@ from apps.properties.views import (
     create_property_api_view,
     delete_property_api_view,
     uploadPropertyImage,
-    PropertySearchApiView
+    PropertySearchApiView,
 )
 
 urlpatterns = [

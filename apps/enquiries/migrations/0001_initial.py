@@ -9,26 +9,41 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Enquiry',
+            name="Enquiry",
             fields=[
-                ('pkid', models.BigAutoField(editable=False, primary_key=True, serialize=False)),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=255, verbose_name='Your Name')),
-                ('phone_number', phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=15, region=None, verbose_name='Phone Number')),
-                ('email', models.EmailField(max_length=254, verbose_name='Email')),
-                ('subject', models.CharField(max_length=128, verbose_name='Subject')),
-                ('message', models.TextField(verbose_name='Message')),
+                (
+                    "pkid",
+                    models.BigAutoField(
+                        editable=False, primary_key=True, serialize=False
+                    ),
+                ),
+                (
+                    "id",
+                    models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("name", models.CharField(max_length=255, verbose_name="Your Name")),
+                (
+                    "phone_number",
+                    phonenumber_field.modelfields.PhoneNumberField(
+                        blank=True,
+                        max_length=15,
+                        region=None,
+                        verbose_name="Phone Number",
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254, verbose_name="Email")),
+                ("subject", models.CharField(max_length=128, verbose_name="Subject")),
+                ("message", models.TextField(verbose_name="Message")),
             ],
             options={
-                'verbose_name': 'Enquiry',
-                'verbose_name_plural': 'Enquiries',
+                "verbose_name": "Enquiry",
+                "verbose_name_plural": "Enquiries",
             },
         ),
     ]

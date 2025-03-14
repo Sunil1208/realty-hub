@@ -23,7 +23,9 @@ def create_agent_review(request, profile_id):
         }
         return Response(formatted_response, status=status.HTTP_403_FORBIDDEN)
 
-    alreadyExists = agent_profile.agent_review.filter(agent_pk=profile_user.pkid).exists()
+    alreadyExists = agent_profile.agent_review.filter(
+        agent_pk=profile_user.pkid
+    ).exists()
 
     if alreadyExists:
         formatted_response = {
@@ -37,10 +39,10 @@ def create_agent_review(request, profile_id):
         return Response(formatted_response, status=status.HTTP_400_BAD_REQUEST)
     else:
         review = Rating.objects.create(
-            rater = request.user,
-            agent = agent_profile,
-            rating = data["rating"],
-            comment = data["comment"]
+            rater=request.user,
+            agent=agent_profile,
+            rating=data["rating"],
+            comment=data["comment"],
         )
 
         reviews = agent_profile.agent_review.all()
@@ -49,6 +51,5 @@ def create_agent_review(request, profile_id):
         total = 0
         for i in reviews:
             total += i.rating
-        
-        return Response("Review Added")
 
+        return Response("Review Added")

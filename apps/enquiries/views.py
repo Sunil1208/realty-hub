@@ -7,6 +7,7 @@ from rest_framework.response import Response
 
 from apps.enquiries.models import Enquiry
 
+
 @api_view(["POST"])
 @permission_classes([permissions.AllowAny])
 def send_enquiry_email(request):
@@ -20,13 +21,15 @@ def send_enquiry_email(request):
         from_email = data["email"]
         receipient_list = [DEFAULT_FROM_EMAIL]
 
-        send_mail(subject=subject, message=message, from_email=from_email, recipient_list=receipient_list, fail_silently=True)
-
-        enquiry = Enquiry.objects.create(
-            name=name,
-            email=email,
-            message=message
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=from_email,
+            recipient_list=receipient_list,
+            fail_silently=True,
         )
+
+        enquiry = Enquiry.objects.create(name=name, email=email, message=message)
         enquiry.save()
 
         return Response({"success": "Your Enquiry was successfully submitted."})

@@ -223,9 +223,9 @@ class PropertySearchApiView(APIView):
             bedrooms = 4
         elif bedrooms == "5+":
             bedrooms = 5
-        
+
         queryset = queryset.filter(bedrooms__gte=bedrooms)
-        
+
         bathrooms = data.get("bathrooms")
 
         if bathrooms == "0+":
